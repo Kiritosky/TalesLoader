@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "top": "talesloader:block/chunk_loader_top_on",
+    "bottom": "talesloader:block/chunk_loader_bottom_on",
+    "front": "talesloader:block/chunk_loader_front_on",
+    "side": "talesloader:block/chunk_loader_side_on"
+  }
+}

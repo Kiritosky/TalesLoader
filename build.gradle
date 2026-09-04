@@ -10,6 +10,19 @@ group = mod_group_id
 
 repositories {
     mavenLocal()
+    mavenCentral()
+    maven {
+        name = 'Create, Catnip, Ponder, Flywheel'
+        url = 'https://maven.createmod.net'
+    }
+    maven {
+        // Registrate for 1.21 is only published here, not on maven.tterrag.com.
+        name = 'Registrate'
+        url = 'https://mvn.devos.one/snapshots'
+        content {
+            includeGroup 'com.tterrag.registrate'
+        }
+    }
 }
 
 base {
@@ -96,6 +109,11 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 
 dependencies {
+    // Create is a hard dependency: the GUI is built on its widget library (AbstractSimiContainerScreen,
+    // AllGuiTextures, IconButton) and the block hooks into goggles, wrench and ponder.
+    // Registrate, Ponder, Flywheel and Catnip come in transitively.
+    implementation "com.simibubi.create:create-1.21.1:${create_version}"
+
     // Example mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"
